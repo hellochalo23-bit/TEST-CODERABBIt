@@ -1,6 +1,8 @@
 "use server";
-import { db } from "./context.ts";
+import { auth, db } from "./context.ts";
 
 export async function deleteInvoice(id: string) {
-  await db.invoice.delete({ where: { id } });
+  const session = await auth();
+  if (!session?.user) throw new Error("Sign-in required");
+  await db.invoice.deleteMany({ where: { id, ownerId: session.user.id } });
 }
