@@ -1,3 +1,4 @@
 export function invoiceLabel(identifier: number): string {
-  return "inv-" + String(identifier).padStart(4, "0");
+  const padded = String(identifier).padStart(4, "0");
+  return `inv-${padded}`;
 }
