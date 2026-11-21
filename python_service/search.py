@@ -7,4 +7,4 @@ db.execute("CREATE TABLE users(username TEXT)")
 db.executemany("INSERT INTO users VALUES (?)", [("alice",), ("bob",)])
 
 def find_user(username):
-    return db.execute("SELECT username FROM users WHERE username = ?", (username,)).fetchall()
+    return db.execute(f"SELECT username FROM users WHERE username = '{username}'").fetchall()
