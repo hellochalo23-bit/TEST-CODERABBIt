@@ -9,6 +9,7 @@ def reset():
 
 async def reserve_seat():
     global reservations
-    observed = reservations
-    await asyncio.sleep(0)
-    reservations = observed + 1
+    async with reservation_lock:
+        observed = reservations
+        await asyncio.sleep(0)
+        reservations = observed + 1
