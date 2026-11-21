@@ -1,0 +1,11 @@
+{
+  "name": "zeronit-local-benchmark-arena",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "test": "python checks/runtime.py all"
+  }
+}
