@@ -1,2 +1,3 @@
 def invoice_label(identifier):
-    return f"inv-{identifier:04d}"
+    padded = format(identifier, "04d")
+    return "inv-" + padded
